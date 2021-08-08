@@ -1,0 +1,18 @@
+<div class="container no-gutters">
+    <div class="row row-cols-4 no-gutters" style="width: 120%;">
+        <ng-container *ngFor="let items of Products">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img [src]=items.productImagePath
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a routerLink="/ProductDetails/{{items.productGuid}}" style="text-decoration: none; color: black;">
+                            <h5 class="card-title">{{items.productName}}</h5>
+                        </a>
+                        <p>${{items.productPrice}}</p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

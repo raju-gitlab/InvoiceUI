@@ -1,0 +1,45 @@
+<div class="container no-gutters">
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 85%;">
+                <div class="card-body">
+                    <div class="card" style="margin-bottom: 5px;">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <ng-container *ngFor="let item of Products">
+                                        <div style="display: flex;">
+                                            <div>
+                                                <div>
+                                                    <img [src]=item.productImagePath
+                                                        alt="" style="height: 150px; width: 150px;"><br>
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 30px;">
+                                                <h6>ProductName : {{item.productName}}</h6>
+                                                <h6>ProductPrice : {{item.productPrice}}</h6>
+                                                <h6>{{Products.productGuid}}</h6>
+                                                <h6></h6>
+                                                <h6></h6>
+                                                <button type="button" class="btn btn-primary"
+                                                    style="background-color: #ff4500d6; color: white;border: none; outline: none;"
+                                                    (click)="AddInCart(item.productGuid)" *ngIf="CheckIteminCart(item.productGuid) === false; else GotoCart">Add In Cart
+                                                </button>
+                                                <ng-template #GotoCart>
+                                                    <a class="btn btn-primary" routerLink="/cart" style="background-color: red;color: white;border: none;outline: none;text-decoration: none;">
+                                                        Go to Cart 
+                                                    </a>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a href="#" class="btn card-footer" style="background-color :#5fc94f;color: white;">Place Order</a> -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="card mb-3 cardalign" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://cdn.shopify.com/s/files/1/1762/8771/products/plakater-jorden-minida.jpg?v=1541708245"
+          class="img-fluid rounded-start" alt="..." style="height: 264px;">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>
+          <hr>
+          <form [formGroup]="LoginForm" (ngSubmit)="Register()">
+            <mat-form-field appearance="legacy">
+              <mat-label>UserName</mat-label>
+              <input matInput formControlName="Email" placeholder="Placeholder">
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+              <mat-label>Enter your password</mat-label>
+              <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field><br>
+            <div>
+              <button type="submit" [disabled]="!LoginForm.valid" mat-raised-button>Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btn4x">
+    <a routerLink="/EShop/user/Register" mat-raised-button style="margin-left: 20px;text-decoration: none;">Create Account</a>
+    <a routerLink="/EShop/user/ForgetPassword" mat-raised-button style="margin-left: 20px;text-decoration: none;">Forget password</a>
+  </div>
+</body>
+
+</html>

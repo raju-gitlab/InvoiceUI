@@ -1,0 +1,129 @@
+<div style="width: 60%;position: relative;top: 50%;left: 50%;transform: translate(-50%,-0%);">
+    <mat-card>
+      <form [formGroup]="InvoiceForm" (ngSubmit)="Invoice(CartItems)">
+        <div style="width: 100%; height: 7.5rem; background-color: #5353ee; top: 0;display: flex; justify-content: space-between;">
+            <div style="position: relative;top: 33px;left: 38px; color: white;">
+                <h1>INVOICE</h1>
+            </div>
+            <div style="display: flex;">
+                <div style="padding-right: 40px;position: relative;top: 30px;">
+                    <p style="padding: 0;margin-bottom: -11px; color: white;">123-456-789</p> 
+                    <p style="padding: 0;margin-bottom: -11px; color: white;">yourdomain@mail.com</p>
+                    <p style="color: white;">yourwebsite.com</p>
+                </div>
+                <!-- <div>
+                    <p>
+                        Lore, ipsum dolor sit amaet
+                    </p>
+                </div> -->
+            </div>
+        </div>
+
+        <div style="position: relative;width: 100%; top: 20px;display: flex; justify-content: space-between;">
+            <div>
+                <small>Billed To</small>
+                <input type="text" class="form-control" formControlName="SupplierName" placeholder="Client Name">
+                <input type="text" class="form-control" formControlName="ShipAddress" placeholder="Client Address">
+                <input type="text" class="form-control" formControlName="City" placeholder="City,State">
+                <input type="text" class="form-control" formControlName="ZipCode" placeholder="Zip Code">
+            </div>
+
+            <!-- <div>
+                <small>Invoice Number</small>
+                <p>123456789</p><br>
+                <small>Date Of Issu</small>
+                <p>{{Date}}</p>
+            </div> -->
+
+            <div>
+                <small>Invoice Total</small>
+                <h3 style="color: #28c1ff;">${{TotalPrice}}</h3>
+            </div>
+        </div>
+<br>
+        <div>
+            <span>
+                <hr>
+            </span>    
+        </div>
+
+        <div>
+            <!-- <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Unit Cost</th>
+                    <th scope="col">Qty/Hr Rate</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <div>
+                    <ng-container *ngFor="let items of CartItems">
+                        <tr>
+                            <th scope="row">{{items.productName}}</th>
+                            <td scope="row">{{items.productPrice}}</td>
+                            <td>{{items.productQuantity}}</td>
+                            <td>{{items.productPrice*items.productQuantity}}</td>
+                          </tr>
+                     </ng-container>
+                 </div>
+                </tbody>
+              </table> -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Unit Cost</th>
+                    <th scope="col">Qty/Hr Rate</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let items of CartItems">
+                        <tr>
+                            <th scope="row">{{items.productName}}</th>
+                            <td>${{items.productPrice}}</td>
+                            <td>{{items.productQuantity}}</td>
+                            <td>${{items.productPrice*items.productQuantity}}</td>
+                          </tr>
+                    </ng-container>                  
+                </tbody>
+              </table>
+              <hr>
+        </div>
+
+        <div style="padding-top: 20px;">
+            <div style="position: relative;width: 100%; top: 20px;display: flex; justify-content: space-between;">
+                
+    
+                <div>
+                    <small>Invoice Terms</small>
+                    <p>Please iisu</p><br>
+                </div>
+    
+                <div>
+                    <span>
+                        <p>SubTotal : <span>${{TotalPrice}}</span></p>
+                    </span>
+                    <span>
+                        <p>Tax : <span>
+                            <input type="text" formControlName="Tax" form class="form-control">
+                        </span></p>
+                    </span>
+                    <span>
+                        <p>Total : <span>${{TotalPrice}}</span></p>
+                    </span>
+                    <span>
+                        <p>Amount Due(USD) : <span>${{TotalPrice}}</span></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>  
+    </mat-card>
+</div>

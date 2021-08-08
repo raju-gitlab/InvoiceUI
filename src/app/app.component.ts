@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Invoice';
+
+  logout()
+  {
+    localStorage.clear();
+    sessionStorage.clear();
+  }
+  Isloggedout() : boolean
+  {
+    if(localStorage.getItem("UserId"))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
